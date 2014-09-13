@@ -1,6 +1,12 @@
 #include <v8.h>
 #include <node.h>
+#ifdef _WIN32
+#include <hiredis-win/hiredis.h>
+#pragma comment(lib, "ws2_32.lib")
+#else
 #include <hiredis/hiredis.h>
+#endif
+
 #include "nan.h"
 
 #if NODE_MODULE_VERSION < 12
